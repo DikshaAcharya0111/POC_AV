@@ -30,5 +30,8 @@ print(gdf_parquet.geometry.geom_type.value_counts())
 print("\nFirst few row:")
 print(gdf_parquet.head(10))
 
-# Stocker dans stac ....
+print("\nOne example per column:")
+for col in gdf_parquet.columns:
+    print(f"  {col}: {gdf_parquet[col].iloc[0]}")
+# Prochaine étape: stocker dans stac s'il faut...
 
