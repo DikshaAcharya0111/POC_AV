@@ -62,7 +62,7 @@ print(f"Number of features in JSON: {len(geojson['features'])}")
 
 for i, feature in enumerate(geojson["features"]):
     props = feature["properties"]
-    print(f"  {i+1}. NBIDENT: {props['NBIDENT']} | PUNKTNAME: {props['PUNKTNAME']}")
+    print(f"  {i+1}. NBIDENT: {props['NBIDENT']} | PUNKTNAME: {props['PUNKTNAME']} | NUMMER: {props['NUMMER']}")
 
 final = LFP1_polygon.drop_duplicates(subset=["NBIDENT", "NUMMER"])
 print(f"After removing duplicates: {len(final)} points")
