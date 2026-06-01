@@ -22,9 +22,10 @@ print(f"Bounding box: {minx}, {miny}, {maxx}, {maxy}")
 
 # DuckDb query
 print("Connecting DuckDB")
-con_DuckDB = duckdb.connect()
+con_DuckDB = duckdb.connect(config={
+    "extension_directory": "c:/LegacySW/POC_AV/spatial.duckdb_extensions"
+})
 con_DuckDB.execute("LOAD httpfs;")
-
 # Inspect schema before writing your WHERE clause
 schema = con_DuckDB.execute(f"""
     DESCRIBE SELECT * FROM read_parquet('{parquet_url}') LIMIT 1
